@@ -1,1 +1,1 @@
-web: gunicorn clinicaltrialapp.wsgi
+web: gunicorn my_bandit_site.wsgi
