@@ -1,0 +1,152 @@
+
+body {
+    background-color: white;
+    height: 100%;
+    /*font-family: 'Nanum Myeongjo', serif;*/
+}
+
+.my_header {
+    height: 300px;
+}
+
+h3 {
+    margin-top: 30px;
+    margin-bottom: 14px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bolder;
+}
+
+.form_header {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bolder;
+}
+
+.label_arm_distribution {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bolder;
+}
+
+.arm_selection_menu {
+    margin-bottom: 15px;
+    /*float: left;*/
+}
+
+.form_arm_slider_div {
+    margin-top: 15px;
+}
+
+.card_form_div {
+    margin: 0 auto;
+    box-shadow: 8px 15px 4px #aaaaaa;
+    margin-bottom: 30px;
+
+}
+
+.form_label_questions {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bolder;
+    /*color: black;*/
+}
+
+#introduction_paragraph {
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    margin-left: 15px;
+    text-align: justify;
+    margin-right: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.my_header h1 {
+    font-family: 'Saira Condensed', sans-serif;
+    position: absolute;
+    z-index: 1;
+    margin-left: 13px;
+    color: #f1222c;
+    text-shadow: 2px 2px 8px #FF0000;
+    margin-top: 304px;
+    font-size: 35px;
+}
+
+.my_header img {
+    width: 100%;
+    height: 111%;
+    margin-top: 1px;
+}
+
+#ex1Slider .slider-selection {
+    background: #BABABA;
+}
+
+.range-slider__value {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background: #2c3e50;
+    padding: 5px 10px;
+    margin-left: 8px;
+    float: left;
+}
+
+.range-slider__value:after {
+    position: absolute;
+    top: 8px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-right: 7px solid #2c3e50;
+    border-bottom: 7px solid transparent;
+    content: '';
+}
+
+::-moz-range-track {
+    background: #d7dcdf;
+    border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer {
+    border: 0;
+}
+
+.figure_div {
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+.main-svg {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.figure_results {
+    /*width: 90%;*/
+    margin: 0 auto;
+    height: 250px;
+}
+
+.save_icon_gif {
+    margin-left: 15px;
+    float: right;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.save_icon_gif:hover {
+    color: blue;
+    box-shadow: 2px 4px 6px 1px #aaaaaa;
+}
+
+
+
+

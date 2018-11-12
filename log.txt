@@ -1,0 +1,6 @@
+The environemnt consists of 0 arms as follow:
+The arms have bernouli distribution: [] 
+The epsilon (for epsilon greedy policy) is set: 0.1 
+The number of steps is: 1000 
+The number of iteration (repetition of each experiment) is: 100 
+

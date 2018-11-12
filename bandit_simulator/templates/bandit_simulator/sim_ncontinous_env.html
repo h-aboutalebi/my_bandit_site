@@ -1,0 +1,205 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	{#	Style Links: #}
+	<link href="https://fonts.googleapis.com/css?family=Saira+Condensed" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/style1.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/slide_bar.css' %}"/>
+
+	{#	Java Scripts#}
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	        crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	        crossorigin="anonymous"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="{% static 'bandit_simulator/form_arm_distribution_graphic.js' %}"></script>
+	<script src="{% static 'bandit_simulator/colormap.js' %}"></script>
+	<script src="{% static 'bandit_simulator/graphics.js' %}"></script>
+	<script src="{% static 'bandit_simulator/navbar.js' %}"></script>
+	<script src="{% static 'bandit_simulator/loading_saving_option.js' %}"></script>
+	<meta charset="UTF-8">
+	<title>Simulator</title>
+</head>
+<body>
+
+{#Heaader of html#}
+<div class="my_header">
+	<h1>Clinical Trial Simulator</h1>
+	<img src="{% static  'bandit_simulator/images/header.jpg' %}">
+</div>
+
+{#Navbar of html#}
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+	<a class="navbar-brand" href="#"><span style="margin-left: 270px;"></span></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+	        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			{#              <li class="nav-item">#}
+			{#                  <a class="nav-link" href="#">Link</a>#}
+			{#              </li>#}
+		</ul>
+	</div>
+</nav>
+
+{#    subtitle#}
+<h3>
+	Discrete Environment
+</h3>
+
+{#    introduction paragraph#}
+<p id="introduction_paragraph">
+	Here, you can simulate a possible future performance of different machine learning algorithm on given number of
+	arms (drugs).
+	<br>
+	First, you need to answer the following question to setup the experiment. By default, some values are previously
+	assigned so you can change
+	those values arbitrarily. Finally, please press the submit button to see the corresponding simulation graphs.
+
+</p>
+
+{#form of html#}
+<div class="card border-primary w-75 card_form_div">
+	<div class="card-header form_header">
+		Input Form
+
+		{#		saving and loading option#}
+		<i class="fa fa-save save_icon_gif" onclick="save_reward_tensor()" title="save reward data"></i>
+		<i class="fa fa-upload save_icon_gif" data-toggle="modal" data-target="#exampleModal"
+		   title="upload reward data"></i>
+
+		{#		loading modal section#}
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		     aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Upload txt file</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="input-group">
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" id="inputGroupFile04">
+								<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+							</div>
+							<div class="input-group-append">
+								<button class="btn btn-outline-secondary" onclick="process_uploaded_reward_tensor()"
+								        type="button">
+									Upload
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{#   section input form  #}
+	<div class="card-body text-primary">
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<div class="form-group">
+				<label class="form_label_questions" for="usr">Enter number of patients used for an
+					experiment (Max:
+					1000)</label>
+				<input name="patient_number" type="text" class="form-control" id="patient_number"
+				       value="1000">
+				{#   This is a holder for uploaded reward tensor  #}
+				<input name="reward_tensor" type="text" class="form-control" id="reward_tensor"
+				       value="" style="display: none">
+			</div>
+			<div class="form-group">
+				<label class="form_label_questions" for="usr">Enter number of experiments (Max:
+					100)</label>
+				<input name="number_of_experiment" type="text" class="form-control" value="10"
+				       id="number_of_experiment">
+			</div>
+			<div class="form-group">
+				<label class="form_label_questions" for="usr">Choose initial value for all
+					algorithm's value function</label>
+				<input type="text" class="form-control" value="5" id="initial_value"
+				       name="initial_value">
+			</div>
+			<div class="form-group">
+				<label class="form_label_questions" for="usr">Choose &epsilon; value for epsilon greedy
+					algorithm</label>
+				<input type="text" class="form-control" value="0.1" id="epsilon_value"
+				       name="epsilon_value">
+			</div>
+			<div class="form-group">
+				<label class="form_label_questions" for="usr">Choose &tau; value for softmax
+					algorithm</label>
+				<input type="text" class="form-control" value="0.01" id="tau_value"
+				       name="tau_value">
+			</div>
+			<div class="form-group">
+				<label class="form_label_questions" for="usr">Choose c value for UCB1
+					algorithm</label>
+				<input type="text" class="form-control" value="1" id="c_value"
+				       name="c_value">
+			</div>
+			<div class="form-group">
+				<label class="form_label_questions" for="usr">Choose &alpha; value for Thompson Sampling
+					algorithm</label>
+				<input type="text" class="form-control" value="1" id="alpha_value"
+				       name="alpha_value">
+			</div>
+			<div class="form-group">
+				<label class="form_label_questions" for="usr">Choose &beta; value for Thompson Sampling
+					algorithm</label>
+				<input type="text" class="form-control" value="1" id="beta_value"
+				       name="beta_value">
+			</div>
+
+			<div class="form-group">
+				<div class="dropdown arm_dropdown_menu ">
+					<button type="button" class="btn btn-primary dropdown-toggle arm_selection_menu"
+					        data-toggle="dropdown">
+						Select number of arms
+					</button>
+					<div class="dropdown-menu">
+						{% for ii in range %}
+							<a class="dropdown-item arm_dropdown_menu"
+							   onclick="chosen_number_of_arms(this)" href="#"
+							   value="{{ ii }}">{{ ii }}
+							</a>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="form-group" id="arm_related_distribution_inputs">
+			</div>
+			<button class="btn btn-success" type="button" style="float: right"
+			        onclick="send_form_to_server()">Submit
+			</button>
+		</form>
+	</div>
+</div>
+
+{#result figure of html#}
+<div id="figure_results">
+</div>
+
+
+</body>
+</html>
