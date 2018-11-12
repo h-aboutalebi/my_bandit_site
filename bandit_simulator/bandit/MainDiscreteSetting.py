@@ -2,15 +2,15 @@
 # Here we assume each arm has bernouli distribution as we have two kind of reward 0 or 1. **** very important ****
 
 
-from environmentDiscrete import *
-from ajax_response_producer import *
+from bandit_simulator.bandit.environmentDiscrete import *
+from bandit_simulator.bandit.ajax_response_producer import *
 import numpy as np
 import pickle
-from softmax import *
-from thompson_sampling import *
-from ucb1 import *
-from epsilon_greedy_algorithm import *
-from besa import *
+from bandit_simulator.bandit.softmax import *
+from bandit_simulator.bandit.thompson_sampling import *
+from bandit_simulator.bandit.ucb1 import *
+from bandit_simulator.bandit.epsilon_greedy_algorithm import *
+from bandit_simulator.bandit.besa import *
 
 
 class main_program():
