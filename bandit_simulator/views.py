@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import JsonResponse
-from bandit_simulator.bandit.MainDiscreteSetting import *
+from .bandit.MainDiscreteSetting import *
 
 
 # This is for non-continous environment urls
