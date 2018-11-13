@@ -2,7 +2,6 @@
 # for alpha here we have used the expected reward estimate
 
 
-from MainDiscreteSetting import main_program
 import numpy as np
 
 
@@ -51,9 +50,20 @@ class epsilon_greedy_algorithm():
         self.reward_history.append(reward)
         return chosen_arm
 
+    # Based on the value of epsilon, this function returns flag 0 or 1:
+    # flag 0 represents that any arm with equal probability should be chosen
+    # flag 1 represents only the maximum value arm should be chosen
+
+    def epsilon_greedy_policy(self,epsilon):
+        index = np.random.uniform(0, 1)
+        if (index <= epsilon):
+            return 0
+        else:
+            return 1
+
 #This function choose arms based on the epsilon_greedy algorithm (index=0 <> any arm with equal probability. index=1 <> maximum value arm returned)
     def choose_arm(self):
-        index=main_program.epsilon_greedy_policy(self.epsilon)
+        index=self.epsilon_greedy_policy(self.epsilon)
         if(index==0):
             return np.random.randint(0,self.number_of_arms)
         else:
