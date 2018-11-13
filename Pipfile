@@ -17,6 +17,7 @@ numpy = '==1.14.2'
 django-heroku = "*"
 gunicorn = "*"
 scipy = '==0.19.0'
+matplotlib = '==2.2.2'
 
 [dev-packages]
 
