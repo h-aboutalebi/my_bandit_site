@@ -12,6 +12,7 @@
 	      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/style1.css' %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/slide_bar.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/style_loading_icon.css' %}"/>
 
 	{#	Java Scripts#}
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -33,19 +34,19 @@
 <body>
 
 {#Heaader of html#}
-<div class="my_header">
+<div class="my_header not_loading">
 	<h1>Clinical Trial Simulator</h1>
 	<img src="{% static  'bandit_simulator/images/header.jpg' %}">
 </div>
 
 {#Navbar of html#}
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark not_loading">
 	<a class="navbar-brand" href="#"><span style="margin-left: 270px;"></span></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 	        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<div class="collapse navbar-collapse not_loading" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
 				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -58,12 +59,12 @@
 </nav>
 
 {#    subtitle#}
-<h3>
+<h3 class="not_loading">
 	Discrete Environment
 </h3>
 
 {#    introduction paragraph#}
-<p id="introduction_paragraph">
+<p id="introduction_paragraph" class="not_loading">
 	Here, you can simulate a possible future performance of different machine learning algorithm on given number of
 	arms (drugs).
 	<br>
@@ -74,7 +75,7 @@
 </p>
 
 {#form of html#}
-<div class="card border-primary w-75 card_form_div">
+<div class="card border-primary w-75 card_form_div not_loading">
 	<div class="card-header form_header">
 		Input Form
 
@@ -196,8 +197,45 @@
 	</div>
 </div>
 
+<main class="loading">
+	<div class="dank-ass-loader">
+		<div class="row">
+			<div class="arrow up outer outer-18"></div>
+			<div class="arrow down outer outer-17"></div>
+			<div class="arrow up outer outer-16"></div>
+			<div class="arrow down outer outer-15"></div>
+			<div class="arrow up outer outer-14"></div>
+		</div>
+		<div class="row">
+			<div class="arrow up outer outer-1"></div>
+			<div class="arrow down outer outer-2"></div>
+			<div class="arrow up inner inner-6"></div>
+			<div class="arrow down inner inner-5"></div>
+			<div class="arrow up inner inner-4"></div>
+			<div class="arrow down outer outer-13"></div>
+			<div class="arrow up outer outer-12"></div>
+		</div>
+		<div class="row">
+			<div class="arrow down outer outer-3"></div>
+			<div class="arrow up outer outer-4"></div>
+			<div class="arrow down inner inner-1"></div>
+			<div class="arrow up inner inner-2"></div>
+			<div class="arrow down inner inner-3"></div>
+			<div class="arrow up outer outer-11"></div>
+			<div class="arrow down outer outer-10"></div>
+		</div>
+		<div class="row">
+			<div class="arrow down outer outer-5"></div>
+			<div class="arrow up outer outer-6"></div>
+			<div class="arrow down outer outer-7"></div>
+			<div class="arrow up outer outer-8"></div>
+			<div class="arrow down outer outer-9"></div>
+		</div>
+	</div>
+</main>
+
 {#result figure of html#}
-<div id="figure_results">
+<div id="figure_results" class="not_loading">
 </div>
 
 

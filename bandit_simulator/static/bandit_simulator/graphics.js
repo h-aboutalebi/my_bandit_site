@@ -12,6 +12,7 @@ var uploaded_reward_tensor=""
 //This function uses ajax to send the submitted to form to the server
 function send_form_to_server() {
     var my_form = $("form")
+    activate_loading()
     $.ajax({
         type: 'POST',
         url: "handle_sim_ncontinous_env_ajax/",
@@ -25,9 +26,23 @@ function send_form_to_server() {
             x_list = data['x_list']
             number_of_arms = data["number_of_arms"]
             draw_figure(data)
+            deactivate_loading()
+            window.location.hash = '#figure_results';
         }
     });
     
+}
+
+//This function shows loading icon after pressing submit
+function activate_loading() {
+    $('.not_loading').css('display','none')
+    $('.loading').css('display','block')
+}
+
+//This function hides loading icon
+function deactivate_loading() {
+    $('.not_loading').css('display','')
+    $('.loading').css('display','none')
 }
 
 function draw_figure(data) {
