@@ -102,11 +102,11 @@ class ajax_response_producer:
         array_std_of_arm_reward = []
         for arm in range(self.number_of_arms):
             array_mean_std_specifc_arm = [[], []]  # first sublist is for mean. Second sublist is for std
+            array_average_est_reward_of_arm = [1 for experiment in range(self.number_of_iterations)]
+            initial_std_estimate = 0
+            array_std_est_reward_of_arm = [initial_std_estimate for experiment in range(self.number_of_iterations)]
+            array_number_times_arm_chosen = [1 for experiment in range(self.number_of_iterations)]
             for step in range(self.number_of_steps):
-                array_average_est_reward_of_arm = [0 for experiment in range(self.number_of_iterations)]
-                initial_std_estimate = 0
-                array_std_est_reward_of_arm = [initial_std_estimate for experiment in range(self.number_of_iterations)]
-                array_number_times_arm_chosen = [1 for experiment in range(self.number_of_iterations)]
                 for experiment in range(self.number_of_iterations):
                     if (arm == array_arm_selection_history[experiment][step]):
                         old_average = array_average_est_reward_of_arm[experiment]
