@@ -40,6 +40,7 @@ class main_program():
                                               self.number_of_steps)
         self.reward_tensor = self.build_reward_tensor(form_data_dictionary[
                                                           "reward_tensor"])  # This tensor contains the rewards generated before each iteration for arms. It has three indices:[iteration_number, arm_number, step_number]. This array is used for saving and loading option in form [Audrey suggestion]. It is first initilized by the form input if the user has uploaded a file for the reward tensor
+        self.form_data_dictionary=form_data_dictionary
         if (bool == True):
             self.run_program()
 
@@ -68,7 +69,9 @@ class main_program():
         response = ajax_response_producer([alg.algorithm_name for alg in algorithm_instances_list],
                                           algorithm_instances_list,
                                           self.reward_tensor,
-                                          self.bernouli_distribution_arms)  # algorithm_instances_list algorithms should be in the same order of their list name provided in the first argument
+                                          self.bernouli_distribution_arms,
+                                          self.form_data_dictionary['initial_value']
+                                          )  # algorithm_instances_list algorithms should be in the same order of their list name provided in the first argument
         self.ajax_response = response.dictionary_container
 
     # This function computes the regret,accumulated regret, cumulative reward, percentage of time optimal and worst arm play after the completion of one iteration. This function also calls other functions to update static fields of algorithm like regret, ...

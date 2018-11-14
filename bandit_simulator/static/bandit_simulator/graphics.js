@@ -55,6 +55,7 @@ function draw_figure(data) {
     var algorithm_number = 0
     for (algorithm_number = 0; algorithm_number < list_Algorithms_name.length; algorithm_number++) {
         draw_arm_selection_history_all_algorithm(data, algorithm_number)
+        draw_arm_confidence_all_algorithm(data, algorithm_number)
     }
     
 }
@@ -83,6 +84,32 @@ function draw_arm_selection_history_all_algorithm(data, algorithm_number) {
     // Plotly.plot(canvas_div, lines,layout)
     Plotly.plot(canvas_div, lines, layout)
 }
+
+//This function draw figure corresponding to arm selection history of a given algorithm number
+function draw_arm_confidence_all_algorithm(data, algorithm_number) {
+    var title = "Confidence interval of arms for Algorithm " + list_Algorithms_name[algorithm_number]
+    var y_title = "amount "
+    var String_title = [title, y_title]
+    var canvas_div = create_canvas_div()
+    var arm_number = 0
+    var lines = []
+    for (arm_number = 0; arm_number < number_of_arms; arm_number++) {
+        // debugger;
+        var mean = data["arm_confidence_all_algorithm_list"][algorithm_number][0][arm_number]
+        var std = data["arm_confidence_all_algorithm_list"][algorithm_number][1][arm_number]
+        var input_data = {'String_title': String_title, 'mean': [mean], 'std': [std], 'label': arm_number + 1, 'i': 0}
+        var upper_bound = set_upper_bound_line_ROA(input_data, arm_number + 1)
+        var trace = set_mean_trace_line_ROA(input_data, arm_number + 1)
+        var lower_bound = set_lower_bound_line_ROA(input_data, arm_number + 1)
+        lines.push(lower_bound)
+        lines.push(trace)
+        lines.push(upper_bound)
+    }
+    var layout = set_layeout_figure(String_title)
+    // Plotly.plot(canvas_div, lines,layout)
+    Plotly.plot(canvas_div, lines, layout)
+}
+
 
 
 //This function draw figure corresponding to optimal arm play percentage
