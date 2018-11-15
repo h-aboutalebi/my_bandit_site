@@ -2,6 +2,7 @@
 # for alpha here we have used the expected reward estimate
 
 from bandit_simulator.bandit.MainDiscreteSetting import *
+import copy
 import numpy as np
 import math
 
@@ -33,7 +34,7 @@ class softmax_algorithm():
         if (len(initial_values) == 0):
             self.set_defualt_initial_value()
         else:
-            self.value_arms = initial_values
+            self.value_arms = copy.deepcopy(initial_values)
 
     def set_defualt_initial_value(self):
         for i in range(self.number_of_arms):
