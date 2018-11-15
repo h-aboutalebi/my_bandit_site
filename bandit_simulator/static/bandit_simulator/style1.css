@@ -43,12 +43,8 @@ h3 {
 }
 
 .form_label_questions {
-    float: left;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 15px;
-    font-family: 'Nanum Myeongjo', serif;
-    font-weight: bolder;
+    text-align: left;
+    font-weight: 600;
     /*color: black;*/
 }
 
