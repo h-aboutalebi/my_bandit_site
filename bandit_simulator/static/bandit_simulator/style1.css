@@ -27,8 +27,11 @@ h3 {
 }
 
 .arm_selection_menu {
-    margin-bottom: 15px;
-    /*float: left;*/
+    float: left;
+}
+
+.input-group-text {
+    width: 2.9em
 }
 
 .form_arm_slider_div {
@@ -143,6 +146,8 @@ input::-moz-focus-outer {
     color: blue;
     box-shadow: 2px 4px 6px 1px #aaaaaa;
 }
+
+
 
 
 

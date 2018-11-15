@@ -6,6 +6,8 @@
 
 	{#	Style Links: #}
 	<link href="https://fonts.googleapis.com/css?family=Saira+Condensed" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Karma|Spicy+Rice" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -78,7 +80,7 @@
 {#form of html#}
 <div class="card border-primary w-75 card_form_div not_loading">
 	<div class="card-header form_header">
-		Input Form
+		<i class="fab fa-wpforms fa-lg"></i> <span style="margin-left: 5px"></span> Input Form
 
 		{#		saving and loading option#}
 		<i class="fa fa-save save_icon_gif" onclick="save_reward_tensor()" title="save reward data"></i>
@@ -121,9 +123,15 @@
 			{% csrf_token %}
 			{{ form.as_p }}
 			<div class="form-group row">
-				<label class="col-sm-4 col-form-label form_label_questions" for="patient_number">Enter number of patients (Max:
+				<label class="col-sm-4 col-form-label form_label_questions" for="patient_number">
+					<i class="fas fa-bookmark fa-lg"></i>
+					Enter number of
+					patients (Max:
 					1000)</label>
-				<div class="col-sm-8">
+				<div class="input-group col-sm-8">
+					<div class="input-group-prepend ">
+						<div class="input-group-text"><i class="fas fa-bed"></i></div>
+					</div>
 					<input name="patient_number" type="text" class="form-control" id="patient_number"
 					       value="1000"></div>
 				{#   This is a holder for uploaded reward tensor  #}
@@ -131,64 +139,101 @@
 				       value="" style="display: none">
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-4 col-form-label form_label_questions" for="number_of_experiment">Enter number of experiments (Max:
+				<label class="col-sm-4 col-form-label form_label_questions" for="number_of_experiment">
+					<i class="fas fa-bookmark fa-lg"></i>
+					Enter number of
+					experiments (Max:
 					100)</label>
-				<div class="col-sm-8">
+				<div class="input-group col-sm-8">
+					<div class="input-group-prepend ">
+						<div class="input-group-text"><i class="fas fa-flask"></i></div>
+					</div>
 					<input name="number_of_experiment" type="text" class="form-control" value="10"
 					       id="number_of_experiment">
 				</div>
 			</div>
-			<div class="form-group row">
-				<label class="col-sm-4 col-form-label form_label_questions" for="usr">Initial value for
+			<div class="form-group row ">
+				<label class="col-sm-4 col-form-label form_label_questions" for="usr">
+					<i class="fas fa-bookmark fa-lg"></i>
+					Initial value for
 					algorithm's value function</label>
-				<div class="col-sm-8">
+				<div class="input-group col-sm-8">
+					<div class="input-group-prepend ">
+						<div class="input-group-text"><i class="fas fa-cog"></i></div>
+					</div>
 					<input type="text" class="form-control" value="5" id="initial_value"
 					       name="initial_value">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-4 col-form-label form_label_questions" for="usr">&epsilon; value for epsilon greedy
-					</label>
-				<div class="col-sm-8">
+				<label class="col-sm-4 col-form-label form_label_questions" for="usr">
+					<i class="fas fa-bookmark fa-lg"></i>
+					&epsilon; value for epsilon greedy
+				</label>
+				<div class="input-group col-sm-8">
+					<div class="input-group-prepend ">
+						<div class="input-group-text"><i class="fas fa-cog"></i></div>
+					</div>
 					<input type="text" class="form-control" value="0.1" id="epsilon_value"
 					       name="epsilon_value">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-4 col-form-label form_label_questions" for="usr">&tau; value for softmax
-					</label>
-				<div class="col-sm-8">
+				<label class="col-sm-4 col-form-label form_label_questions" for="usr">
+					<i class="fas fa-bookmark fa-lg"></i>
+					&tau; value for softmax
+				</label>
+				<div class="input-group col-sm-8">
+					<div class="input-group-prepend ">
+						<div class="input-group-text"><i class="fas fa-cog"></i></div>
+					</div>
 					<input type="text" class="form-control" value="0.01" id="tau_value"
 					       name="tau_value">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-4 col-form-label form_label_questions" for="usr">c value for UCB1
-					</label>
-				<div class="col-sm-8">
+				<label class="col-sm-4 col-form-label form_label_questions" for="usr">
+					<i class="fas fa-bookmark fa-lg"></i>
+					c value for UCB1
+				</label>
+				<div class="input-group col-sm-8">
+					<div class="input-group-prepend ">
+						<div class="input-group-text"><i class="fas fa-cog"></i></div>
+					</div>
 					<input type="text" class="form-control" value="1" id="c_value"
 					       name="c_value">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-4 col-form-label form_label_questions" for="usr">&alpha; value for Thompson Sampling
-					</label>
-				<div class="col-sm-8">
+				<label class="col-sm-4 col-form-label form_label_questions" for="usr">
+					<i class="fas fa-bookmark fa-lg"></i>
+					&alpha; value for Thompson
+					Sampling
+				</label>
+				<div class="input-group col-sm-8">
+					<div class="input-group-prepend ">
+						<div class="input-group-text"><i class="fas fa-cog"></i></div>
+					</div>
 					<input type="text" class="form-control" value="1" id="alpha_value"
 					       name="alpha_value">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-4 col-form-label form_label_questions" for="usr">&beta; value for Thompson Sampling
-					</label>
-				<div class="col-sm-8">
+				<label class="col-sm-4 col-form-label form_label_questions" for="usr">
+					<i class="fas fa-bookmark fa-lg"></i>
+					&beta; value for Thompson Sampling
+				</label>
+				<div class="input-group col-sm-8">
+					<div class="input-group-prepend ">
+						<div class="input-group-text"><i class="fas fa-cog"></i></div>
+					</div>
 					<input type="text" class="form-control" value="1" id="beta_value"
 					       name="beta_value">
 				</div>
 			</div>
 
 			<div class="form-group row">
-				<div class="col-sm-4  dropdown arm_dropdown_menu ">
+				<div class="col-sm-4  dropdown arm_dropdown_menu">
 					<button type="button" class="btn btn-primary dropdown-toggle arm_selection_menu"
 					        data-toggle="dropdown">
 						Select number of arms
