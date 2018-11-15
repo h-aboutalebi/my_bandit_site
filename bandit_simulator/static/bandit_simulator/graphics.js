@@ -8,6 +8,15 @@ var uploaded_reward_tensor=""
 
 
 
+//This function first verify the form then activate function send_form_to_server()
+function verify_form(){
+    if(dropdown_is_selected){
+        send_form_to_server()
+    }else {
+         $('#exampleModalCenter').modal('show');
+    }
+}
+
 
 //This function uses ajax to send the submitted to form to the server
 function send_form_to_server() {

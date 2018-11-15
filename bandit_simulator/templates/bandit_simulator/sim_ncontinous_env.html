@@ -173,12 +173,12 @@
 			</div>
 
 			<div class="form-group">
-				<div class="dropdown arm_dropdown_menu ">
+				<div class="dropdown arm_dropdown_menu " >
 					<button type="button" class="btn btn-primary dropdown-toggle arm_selection_menu"
-					        data-toggle="dropdown">
+					        data-toggle="dropdown" >
 						Select number of arms
 					</button>
-					<div class="dropdown-menu">
+					<div class="dropdown-menu" >
 						{% for ii in range %}
 							<a class="dropdown-item arm_dropdown_menu"
 							   onclick="chosen_number_of_arms(this)" href="#"
@@ -191,7 +191,7 @@
 			<div class="form-group" id="arm_related_distribution_inputs">
 			</div>
 			<button class="btn btn-success" type="button" style="float: right"
-			        onclick="send_form_to_server()">Submit
+			        onclick="verify_form()">Submit
 			</button>
 		</form>
 	</div>
@@ -238,6 +238,25 @@
 <div id="figure_results" class="not_loading">
 </div>
 
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle" >	<img src="{% static  'bandit_simulator/images/baseline-error-24px.svg' %}"></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				Please choose number of arms before pressing the submit button
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>

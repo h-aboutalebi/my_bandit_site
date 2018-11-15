@@ -2,7 +2,7 @@
 //these two global values are for slide bar input figure and corresponding value displayer span
 var figure
 var displayer
-
+var dropdown_is_selected=false
 
 $(document).ready(function() {
     
@@ -87,6 +87,7 @@ function create_div_col_element(){
 }
 
 function chosen_number_of_arms(element){
+    dropdown_is_selected=true
     create_arms_distributions_fields($(element).text())
 }
 
