@@ -31,9 +31,12 @@ function create_arms_distributions_fields(number_of_arms) {
 //This function provides the labels corresponding to the distributions of arms. This input is provided by end user
 function provide_label_arm_distribution(arm_number){
     var my_div_col=create_div_col_element()
+    var icon=document.createElement("i")
+    icon.className+=" fas fa-sliders-h icon_label"
     var my_label=document.createElement("label")
     my_label.className+=" label_arm_distribution"
     my_label.innerHTML="Mean of arm " + arm_number
+    $(my_label).prepend(icon)
     $(my_div_col).append(my_label)
     return  my_div_col
 }

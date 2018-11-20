@@ -22,8 +22,14 @@ h3 {
 }
 
 .label_arm_distribution {
-    font-family: 'Nanum Myeongjo', serif;
-    font-weight: bolder;
+    font-weight: 600;
+    font-family: 'Karma', serif;
+    float:right;
+}
+
+.icon_label{
+    color: #0264b9;
+    margin-right: 5px;
 }
 
 .arm_selection_menu {
