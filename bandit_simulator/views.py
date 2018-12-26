@@ -9,6 +9,10 @@ def sim_ncontinous_env(request):
     context = {'range': range(1, 15)}
     return render(request, 'bandit_simulator/sim_ncontinous_env.html', context)
 
+# This is for about page
+def about(request):
+    return render(request, 'bandit_simulator/about.html', {})
+
 
 # This function handles the request sent by sim_ncontinous_env ajax
 def handle_sim_ncontinous_env_ajax(request):

@@ -5,6 +5,16 @@ body {
     /*font-family: 'Nanum Myeongjo', serif;*/
 }
 
+
+.my_nav_link{
+    z-index: 10;
+}
+
+#my_logo {
+    width: 4%;
+    margin-left: 1515px;
+    margin-top: -36px;
+}
 .my_header {
     height: 300px;
 }
@@ -23,6 +33,7 @@ h3 {
 
 .label_arm_distribution {
     font-weight: 600;
+    text-align: right;
     font-family: 'Karma', serif;
     float:right;
 }
@@ -60,7 +71,7 @@ h3 {
 
 #introduction_paragraph {
     text-align: left;
-    margin-top: 50px;
+    padding: 50px;
     margin-bottom: 70px;
     margin-left: 15px;
     text-align: justify;

@@ -19,6 +19,6 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sim_ncontinous_env/',include('bandit_simulator.url'))
+    path('',include('bandit_simulator.url'))
 
 ]

@@ -16,6 +16,8 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/style1.css' %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/slide_bar.css' %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/style_loading_icon.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/meet_the_team.css' %}"/>
+
 
 	{#	Java Scripts#}
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -38,21 +40,26 @@
 
 {#Heaader of html#}
 <div class="my_header not_loading">
-	<h1>Clinical Trial Simulator</h1>
+	<h1 style=" margin-left: -2000px"><img id="my_logo"
+	         src="https://upload.wikimedia.org/wikipedia/en/thumb/2/29/McGill_University_CoA.svg/1200px-McGill_University_CoA.svg.png">
+	</h1>
 	<img src="{% static  'bandit_simulator/images/header.jpg' %}">
 </div>
 
 {#Navbar of html#}
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark not_loading">
-	<a class="navbar-brand" href="#"><span style="margin-left: 270px;"></span></a>
+	<a class="navbar-brand" href="#"><span style="margin-left: 165px;"></span></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 	        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse not_loading" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			<li class="nav-item active my_nav_link">
+				<a class="nav-link"  href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="my_nav_link">
+				<a class="nav-link"  href="http://127.0.0.1:8000/about">About <span class="sr-only"></span></a>
 			</li>
 			{#              <li class="nav-item">#}
 			{#                  <a class="nav-link" href="#">Link</a>#}

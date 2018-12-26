@@ -1,0 +1,117 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+  background-image: url('https://res.cloudinary.com/gus-armistead/image/upload/v1463646309/cheap_diagonal_fabric_1_bqzjmi.png');
+  font-family: 'Montserrat', sans-serif;
+  /*color: #6B6B6B;*/
+  /*text-shadow: 1px 1px #EFEFEF;*/
+}
+
+.meet-the-team {
+  margin-bottom: 100px;
+}
+
+.title {
+  font-size: 60px;
+  text-align: center;
+  position: relative;
+  margin: 55px 0;
+  color: #F3F3F3;
+  text-shadow: 4px 3px 3px #676767;
+}
+
+.title:after {
+  background: #93AFF3;
+  content: "";
+  height: 8px;
+  left: 0;
+  margin: 50px auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 30px;
+  width: 185px;
+  box-shadow: 4px 3px 3px #717171;
+}
+
+.team-section {
+  width: 85%;
+  margin: auto;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.team-member {
+  height: 500px;
+  display: inline;
+  margin: 20px 15px;
+  width:  85%;
+
+}
+
+.image-holder {
+  display: inline-block;
+
+}
+
+.image-holder img {
+  border-radius: 50%;
+    display: inline;
+    width: 200px;
+}
+
+.text-holder {
+  display: inline-block;
+  height: 100%;
+  /*padding: 0 0 0 20px;*/
+  position: relative;
+  margin-top: 63px;
+}
+
+.text-content {
+  /*position: absolute;*/
+  /*top: 50%;*/
+  /*transform: translateY(-50%);*/
+}
+
+.team-name {
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+.team-job {
+  font-style: italic;
+  color: #6B6B6B;
+  margin: 12px 0;
+}
+
+.team-bio {
+  font-size: 14px;
+  margin: 14px 0;
+}
+
+.team-contact {
+  margin: 14px 0;
+}
+
+.team-contact a {
+  text-decoration: none;
+  color: #6B6B6B;
+}
+
+.team-contact a:hover {
+  text-decoration: underline;
+}
+
+.shadow {
+  height: 20px;
+  width: 200px;
+  margin: auto;
+  background-color: rgba(255,255,255,0);
+  -webkit-box-shadow: 20px 215px 150px 20px rgba(0,0,0,0.54);
+  -moz-box-shadow: 20px 215px 150px 20px rgba(0,0,0,0.54);
+  box-shadow: 0px 215px 175px 30px rgba(0,0,0,0.75);
+}
+
