@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	{#	Style Links: #}
+	<link href="https://fonts.googleapis.com/css?family=Saira+Condensed" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Karma|Spicy+Rice" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/style1.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/slide_bar.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/style_loading_icon.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'bandit_simulator/meet_the_team.css' %}"/>
+
+
+	{#	Java Scripts#}
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	        crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	        crossorigin="anonymous"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="{% static 'bandit_simulator/form_arm_distribution_graphic.js' %}"></script>
+	<script src="{% static 'bandit_simulator/colormap.js' %}"></script>
+	<script src="{% static 'bandit_simulator/graphics.js' %}"></script>
+	<script src="{% static 'bandit_simulator/navbar.js' %}"></script>
+	<script src="{% static 'bandit_simulator/loading_saving_option.js' %}"></script>
+	<meta charset="UTF-8">
+	<title>Simulator</title>
+</head>
+<body>
+
+{#Heaader of html#}
+<div class="my_header not_loading">
+	<h1 style=" margin-left: -2000px"><img id="my_logo"
+	                                       src="https://upload.wikimedia.org/wikipedia/en/thumb/2/29/McGill_University_CoA.svg/1200px-McGill_University_CoA.svg.png">
+	</h1>
+	<img src="{% static  'bandit_simulator/images/header.jpg' %}">
+</div>
+
+{#Navbar of html#}
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark not_loading">
+	<a class="navbar-brand" href="#"><span style="margin-left: 165px;"></span></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+	        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse not_loading" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="my_nav_link">
+				<a class="nav-link " href="http://127.0.0.1:8000/sim_ncontinous_env">Home <span
+						class="sr-only"></span></a>
+			</li>
+			<li class="nav-item active my_nav_link">
+				<a class="nav-link " href="#">About <span class="sr-only">(current)</span></a>
+			</li>
+			{#              <li class="nav-item">#}
+			{#                  <a class="nav-link" href="#">Link</a>#}
+			{#              </li>#}
+		</ul>
+	</div>
+</nav>
+
+{#    subtitle#}
+<h3 class="not_loading">
+	Our Mission
+</h3>
+
+{#    introduction paragraph#}
+<p id="introduction_paragraph" class="not_loading">
+	This project is part of the Quebec SPOR SUPPORT Unit to enhance patient monitoring and improve primary care. The
+	main part
+	of this process contains decision making based on a given constraints and demands.
+	<br>
+	Here, we try to address part of this problem by utilizing machine learning algorithms and help practitioners better
+	understand
+	the efficacy of these models. Considering the fact that many research papers provide limited illustrations of their
+	work for
+	different problem settings, we aim to provide a tool kit for practitioners which can extensively study different
+	problem settings and can
+	further help practitioners in model selection.
+	<br>
+
+</p>
+
+<h3 class="not_loading">
+	Our Team
+</h3>
+
+<div class="meet-the-team">
+
+	<ul class="team-section">
+		<li class="team-member">
+			<div class="shadow"></div>
+			<div class="image-holder">
+				<img src="{% static 'bandit_simulator/images/tibor.png' %}">
+			</div>
+			<div class="text-holder">
+				<div class="text-content">
+					<p class="team-name">Tibor Schuster</p>
+					<p class="team-job">Supervisor & Director </p>
+					<p class="team-bio">Dr Schuster is currently Assistant Professor at the Department of Family Medicine. He is also holder of a Tier II Canada Research Chair in Biostatistical Methods for Primary Care Research. Dr Schuster taught biostatistical methods at renowned institutions in Germany, Canada and Australia. He acted and is acting as supervisor and mentor for graduate and doctoral students in the fields of biostatistics, epidemiology and bio-medical research.</p>
+					<p class="team-contact"><a href="https://www.mcgill.ca/familymed/tibor-schuster"> More information</a></p>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<ul class="team-section">
+		<li class="team-member">
+			<div class="shadow"></div>
+
+			<div class="image-holder">
+				<img src="{% static 'bandit_simulator/images/hossein.jpg' %}">
+			</div>
+			<div class="text-holder">
+				<div class="text-content">
+					<p class="team-name">Hossein Aboutalebi</p>
+					<p class="team-job">Research Assistant & Software Engineer</p>
+					<p class="team-bio">Hossein obtained his master of computer science at McGill University. His research area is mainly
+					focused around machine learning, convex optimization, and probability theory. Currently, his main
+					 projects are in deep learning and reinforcement learning. His main interest in research is to utilize machine learning models
+						in healthcare and bridge the gap between
+					these two fields.</p>
+					<p class="team-contact"><a href="https://www.linkedin.com/in/hossein-aboutalebi-2922a2b1/"> More information</a></p>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<h3 class="not_loading">
+	Our Sponsers
+</h3>
+
+<div >
+				<img style="width: 100%" src="{% static 'bandit_simulator/images/funding.jpg' %}">
+</div>
+<div style="height: 60px">
+
+</div>
+
+
+</body>
+</html>
