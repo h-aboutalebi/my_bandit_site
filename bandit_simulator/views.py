@@ -2,12 +2,15 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import JsonResponse
 from .bandit.MainDiscreteSetting import *
-
+from django.http import HttpResponseRedirect
 
 # This is for non-continous environment urls
 def sim_ncontinous_env(request):
     context = {'range': range(1, 15)}
     return render(request, 'bandit_simulator/sim_ncontinous_env.html', context)
+
+def redirect_sim_ncontinous_env(request):
+    return HttpResponseRedirect('https://clinicaltrialapp.herokuapp.com/sim_ncontinous_env')
 
 # This is for about page
 def about(request):
