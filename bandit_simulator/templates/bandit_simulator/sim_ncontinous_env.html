@@ -76,11 +76,15 @@
 {#    introduction paragraph#}
 <p id="introduction_paragraph" class="not_loading">
 	Here, you can simulate a possible future performance of different machine learning algorithm on given number of
-	arms (drugs).
+	arms (drugs). Patients are assigned sequentially to drugs. In other words, at each step, one patient is assigned to a drug by the algorithm. We also
+	assume the effect of the drug (reward) is seen immediately. The goal here is to make sure more patients are assigned to the optimal drug.
 	<br>
-	First, you need to answer the following question to setup the experiment. By default, some values are previously
-	assigned so you can change
-	those values arbitrarily. Finally, please press the submit button to see the corresponding simulation graphs.
+	To setup the experiment, first, you need to answer the following question. By default, some values are previously
+	assigned and can be changed. The hyper parameters of algorithms can also be changed to see their effects on performance.
+	<br>
+	Then, select number of drugs (arms) and change their effect distribution (reward distribution).
+	The drug that has higher reward is better. Finally, please press the submit button to see the corresponding simulation graphs.
+	Currently we support bernouli distributions for drug effects (reward distribution). In the future, we will add more distributions.
 
 </p>
 
@@ -243,7 +247,7 @@
 				<div class="col-sm-4  dropdown arm_dropdown_menu">
 					<button type="button" class="btn btn-primary dropdown-toggle arm_selection_menu"
 					        data-toggle="dropdown">
-						Select number of arms
+						Select number of drugs (arms)
 					</button>
 					<div class="dropdown-menu">
 						{% for ii in range %}

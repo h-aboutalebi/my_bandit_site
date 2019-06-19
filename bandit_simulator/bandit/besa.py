@@ -24,7 +24,7 @@ class besa_algorithm():
         self.arms_rewards_history = [[] for i in range(self.number_of_arms)] # This list, contains the history of each arm reward.
         self.each_arm_play_counter = [0 for i in range(self.number_of_arms)]  # This list saves number of time each arm has been played. It is used with reward_matrix to get the correspondong reward
         self.reward_matrix = reward_matrix
-        self.algorithm_name = "BESA"
+        self.algorithm_name = "BESA+"
 
     # This function puts together the components of BESA (choose_arm,update_value) and runs the whole algorithm
     def run(self):
@@ -75,6 +75,8 @@ class besa_algorithm():
         sample_list_arm_1 = np.random.choice(self.arms_rewards_history[arm_1_index], sample_size, replace=False)
         sum_sample_arm_1 = sum(sample_list_arm_1)
         sum_sample_arm_2 = sum(self.arms_rewards_history[arm_2_index])
+        if(sample_size<np.log(sample_size+len(self.arms_rewards_history[arm_1_index]))/500):
+            return arm_2_index
         if (sum_sample_arm_1 <= sum_sample_arm_2):
             return arm_2_index
         else:
